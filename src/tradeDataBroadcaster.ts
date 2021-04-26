@@ -8,7 +8,6 @@ import { TradeProvider } from './trades/tradeProvider';
 const target = process.env.TRADESERVER  || 'ws://localhost:3000'; 
 const socket = io('ws://localhost:3000');
 
-
 const newsProvider = new NewsDataProvider(socket);
 const tradeEquityProvider = new TradeEquityDataProvider(socket);
 
@@ -19,17 +18,11 @@ _tradeProviders.push(tradeEquityProvider);
 var trades = new TradeProvider(_tradeProviders);
 trades.start();
 
-console.log('initialization of provider completed!');
-
+console.log('initialization of provider: COMPLETED');
 
 socket.on("connect", () => {
 
     console.log('connected to server and begin sending message over');
-
-  
-    // subscribe to different data 
-    // const socketData:Socket<DefaultEventsMap, DefaultEventsMap>; 
-
-  });
+});
 
 socket.connect();
