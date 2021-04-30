@@ -1,0 +1,4 @@
+interface TradeData 
+{ 
+    Start() : void;
+}
